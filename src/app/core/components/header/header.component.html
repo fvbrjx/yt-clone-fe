@@ -1,0 +1,21 @@
+<div class="nav-container" [class.is-mobile]="mobileQuery.matches">
+  <mat-sidenav-container
+    class="sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      class="sidenav"
+      #snav
+      [mode]="(isWatching | async) ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <app-navbar (toggleSidebar)="snav.toggle()" ></app-navbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

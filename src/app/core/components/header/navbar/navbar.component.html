@@ -1,0 +1,128 @@
+<!-- <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+     <span routerLink="home" class="cursor-pointer app-name">Youtube clone</span>
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    class="icon favorite-icon"
+    aria-label="icon-button with heart icon"
+    routerLink="/upload"
+  >
+    <mat-icon>video_call</mat-icon>
+  </button>
+
+  <ng-container *ngIf="true; else loginBtn">
+    <button
+      mat-icon-button
+      class="icon"
+      aria-label="icon-button with share icon"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="icon"
+      aria-label="icon-button with share icon"
+      (click)="onLogout()"
+    >
+      Logout
+    </button>
+  </ng-container>
+  <ng-template #loginBtn>
+    <button mat-raised-button (click)="onLogin()">Login</button>
+  </ng-template>
+  </mat-toolbar> -->
+
+<header>
+  <div class="logo left">
+    <i id="menu" class="material-icons cursor-pointer"  (click)="toggleSidebar.emit()">menu</i>
+    <img
+      routerLink="home"
+      class="cursor-pointer"
+      src="https://www.freecodecamp.org/news/content/images/2022/01/yt-logo.png"
+    />
+  </div>
+
+  <div class="search center">
+    <form action="">
+      <input type="text" placeholder="Search" />
+      <mat-divider vertical></mat-divider>
+      <button><i class="material-icons">search</i></button>
+    </form>
+  </div>
+
+  <div class="flex items-center" *ngIf="authService.auth0.user$ | async as user; else loginBtn">
+    <i class="material-icons" routerLink="/upload">video_call</i>
+    <!-- <i class="material-icons">apps</i> -->
+    <i class="material-icons">notifications</i>
+    <!-- <i class="material-icons display-this">account_circle</i> -->
+    <img [src]="user.picture" alt="User propic" class="rounded-circle img-fluid profile-picture w-11 h-8 material-icons" >
+    <button (click)="authService.logout()">logout</button>
+    
+  </div>
+  <ng-template #loginBtn>
+    <button (click)="authService.authenticate()">login</button>
+  </ng-template>
+</header>
+
+
+<!-- <div class="nav-container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+     <span routerLink="home" class="cursor-pointer app-name">Youtube clone</span>
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    class="icon favorite-icon"
+    aria-label="icon-button with heart icon"
+    routerLink="/upload"
+  >
+    <mat-icon>video_call</mat-icon>
+  </button>
+
+  <ng-container *ngIf="true; else loginBtn">
+  <ng-container *ngIf="authService.isAuthenticated() | async; else loginBtn">
+    <button
+      mat-icon-button
+      class="icon"
+      aria-label="icon-button with share icon"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="icon"
+      aria-label="icon-button with share icon"
+      (click)="onLogout()"
+    >
+      Logout
+    </button>
+  </ng-container>
+  <ng-template #loginBtn>
+    <button mat-raised-button (click)="onLogin()">Login</button>
+  </ng-template>
+  </mat-toolbar>
+
+  <mat-sidenav-container
+    class="sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      class="sidenav"
+      #snav
+      [mode]="(isWatching | async) ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->
