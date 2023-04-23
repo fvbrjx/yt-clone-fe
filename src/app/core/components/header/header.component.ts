@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Observable, of, filter, map } from 'rxjs';
 
@@ -7,6 +7,7 @@ import { Observable, of, filter, map } from 'rxjs';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
   mobileQuery: MediaQueryList;

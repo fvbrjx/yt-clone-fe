@@ -11,8 +11,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HeaderComponent} from './components/header/header.component'
+import { MatMenuModule } from '@angular/material/menu';
+
 @NgModule({
-  declarations: [HeaderComponent,NavbarComponent, SidebarComponent],
+  declarations: [HeaderComponent, NavbarComponent, SidebarComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -23,6 +25,7 @@ import {HeaderComponent} from './components/header/header.component'
     MatFormFieldModule,
     RouterModule,
     ReactiveFormsModule,
+    MatMenuModule
   ],
   exports: [HeaderComponent],
 })

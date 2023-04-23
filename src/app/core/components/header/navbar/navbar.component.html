@@ -53,13 +53,13 @@
     </form>
   </div>
 
-  <div class="flex items-center" *ngIf="authService.auth0.user$ | async as user; else loginBtn">
-    <i class="material-icons" routerLink="/upload">video_call</i>
+  <div class="flex items-center gap-2 mr-3" *ngIf="authService.auth0.user$ | async as user; else loginBtn">
+    <i class="material-icons material-symbols-outlined"  [matMenuTriggerFor]="menu" #menuTrigger >video_call</i>
     <!-- <i class="material-icons">apps</i> -->
-    <i class="material-icons">notifications</i>
+    <i class="material-icons material-symbols-outlined">notifications</i>
     <!-- <i class="material-icons display-this">account_circle</i> -->
     <img [src]="user.picture" alt="User propic" class="rounded-circle img-fluid profile-picture w-11 h-8 material-icons" >
-    <button (click)="authService.logout()">logout</button>
+    <!-- <button (click)="authService.logout()">logout</button> -->
     
   </div>
   <ng-template #loginBtn>
@@ -67,7 +67,13 @@
   </ng-template>
 </header>
 
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item (click)="openDialog()">
+    <mat-icon class="material-symbols-outlined  ">smart_display</mat-icon>
+    <span>Upload video</span>
+  </button>
 
+</mat-menu>
 <!-- <div class="nav-container" [class.is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="toolbar">
     <button mat-icon-button (click)="snav.toggle()">

@@ -1,0 +1,26 @@
+.drag-text {
+  font-weight: 500 !important;
+}
+
+button {
+  background-color: #3ea6ff8a;
+}
+
+.vw-60 {
+  width: 65vw;
+}
+
+.drop-file {
+  ::ng-deep {
+    .ngx-file-drop__drop-zone {
+      height: inherit;
+      margin: initial;
+      border: initial;
+      border-radius: initial;
+    }
+    .ngx-file-drop__content {
+        display: initial;
+        color: initial;
+    }
+  }
+}
